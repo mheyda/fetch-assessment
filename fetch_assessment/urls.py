@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from api.views import index, transactions, points, balances
+from api.views import index, transactions, points, balances, reset
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,5 @@ urlpatterns = [
     path("transactions/", transactions, name="transactions"),
     path("points/", points, name="points"),
     path("balances/", balances, name="balances"),
+    path("reset/", reset, name="reset")
 ]

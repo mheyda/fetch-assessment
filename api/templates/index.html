@@ -7,6 +7,13 @@
     </head>
     <body>
         <h1>Actions</h1>
+
+        <h2>Reset Everything</h2>
+        <form action="{% url 'reset' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Reset">
+        </form>
+
         <h2>Spend Points</h2>
         <form action="{% url 'points' %}" method="POST">
             {% csrf_token %}
@@ -15,6 +22,7 @@
                 <input type="submit">
             </p>
         </form>
+
         <h2>Add Transaction</h2>
         <form action="{% url 'transactions' %}" method="POST">
             {% csrf_token %}
@@ -33,7 +41,7 @@
                 <br>
                 {{ add_transaction_form.timestamp }}
             </p>
-            <input type="submit">
+            <input type="submit" name="add_transaction">
         </form>
 
         <h1>Balances</h1>
@@ -48,5 +56,6 @@
                 <br>
             {% endfor %}
         {% endif %}
+    
     </body>
 </html>

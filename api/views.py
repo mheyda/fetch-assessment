@@ -117,11 +117,19 @@ def points(request):
         else:
             return HttpResponse("You don't have enough points!")
 
-        
-
 
 # Balances route
 def balances(request):
     # User wants to view the balances from all payers
     if request.method == "GET":
         return HttpResponse(json.dumps(balance_data))
+
+
+# Reset route
+def reset(request):
+    # User wants to clear transactions
+    if request.method == "POST":
+        transaction_data.clear()
+        balance_data.clear()
+    
+    return HttpResponseRedirect("/")
