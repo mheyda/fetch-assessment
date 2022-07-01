@@ -19,9 +19,21 @@
         <form action="{% url 'transactions' %}" method="POST">
             {% csrf_token %}
             <p>
-                {{ add_transaction_form }}
-                <input type="submit">
+                {{ add_transaction_form.payer.label }}
+                <br>
+                {{ add_transaction_form.payer }}
             </p>
+            <p>
+                {{ add_transaction_form.points.label }}
+                <br>
+                {{ add_transaction_form.points }}
+            </p>
+            <p>
+                {{ add_transaction_form.timestamp.label }}
+                <br>
+                {{ add_transaction_form.timestamp }}
+            </p>
+            <input type="submit">
         </form>
 
         <h1>Balances</h1>
