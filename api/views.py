@@ -55,7 +55,7 @@ def transactions(request):
         timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
         # Push transaction to storage and sort by timestamp
-        data["transactions"].append({"payer": payer, "points": points, "timestamp": timestamp, "spent": False})
+        data["transactions"].append({"payer": payer, "points": points, "timestamp": timestamp})
         data["transactions"].sort(key=lambda trans:time.mktime(time.strptime(trans['timestamp'], '%Y-%m-%dT%H:%M:%SZ')))
 
         # Push payer to balances if they don't already exist
